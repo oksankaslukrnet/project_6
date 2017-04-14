@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form</title>
+	<script type="text/javascript" src="1.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfRliBP3kFAgggf-Qb2G6NjuiEJpWkyo4&callback=myMap"></script>
+  <link href="style.css" rel="stylesheet" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="dobPicker.min.js"></script>
+</head>
+<body>
+     <p class="content">  
+
+     <header class="border_blue">
+         <img src="logo.png" alt="logo"/>
+       <h1>Корпоративний сайт компанії FlowerForYou</h1>   
+    </header>   
+    <!-- menu -->
+    <nav class="border_grey">   
+      <ul class="nav-wrapper ">
+        <li><a href="index.html">Головна</a></li>
+        <li><a>Правила компанії</a></li>
+        <li><a>Улюблене</a></li>
+        <li><a class="page border_blue">Форма для нових працівників</a></li>
+            </ul>    
+    </nav>
+      <div class="border_grey" style="margin-bottom: 20px; padding: 1%;">
+
+      <form name="forma12" class="login">
+        <h2>Познайомимoся ближче</h2>
+         <!-- surname -->
+         <p class="text_name">
+            <label for="surname">Прізвище*:</label><br>
+            <input type="text" name="surname" id="surname" class="border"><br>
+         </p>
+            <!--  name -->
+         <p class="text_name ">
+            <label for="name">І'мя*:</label><br>
+            <input type="text" name="name" id="name" class="border"><br>
+         </p>
+         <!-- fathers_name -->
+         <p class="text_name">
+            <label for="fathers_name">По батькові*:</label><br>
+            <input type="text" name="fathers_name" id="fathers_name" class="border"><br>
+         </p>
+         <!--  date of birthday -->
+         <p class="text_name">
+          <label >Дата народження:</label><br>
+          <select id="dobday"></select>
+      <select id="dobmonth"></select>
+      <select id="dobyear"></select>
+      <script>
+        $(document).ready(function() {
+          $.dobPicker({
+            daySelector: '#dobday', /* Required */
+            monthSelector: '#dobmonth', /* Required */
+            yearSelector: '#dobyear', /* Required */
+            dayDefault: 'День', /* Optional */
+            monthDefault: 'Місяць', /* Optional */
+            yearDefault: 'Рік', /* Optional */
+            minimumAge: 12, /* Optional */
+            maximumAge: 80 /* Optional */
+          });
+        });
+      </script>
+      </p>
+        <br class="space">
+        <hr>
+        <br class="space">
+      <!-- office number -->
+          <p class="text_name ">
+       <label>Філія №*:</label><br>
+        <select id= "office" name="office"  class="border">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>Головний офіс</option>
+        </select>
+      </p>
+            <!-- department -->
+      <p class="text_name">
+      <label>Відділ*:</label><br>
+        <select id= "department" name="department"  class="border">
+          <option>Продажів</option>
+          <option>Адміністрування</option>
+          <option>ІТ</option>
+          <option>Логістики</option>
+        </select>
+      </p>
+      <!-- position -->
+       <p class="text_name">
+            <label for="position" class="border">Посада*:</label><br>
+            <input type="text" name="position" id="position" class="border"><br>
+           </p>
+             <!-- days number -->
+            <p class="text_name">
+            <label for="days"  class="border">Кількість днів на роботі*:</label><br>
+            <input type="text" name="days" id="days" class="border"><br>
+           </p>
+            <br class="space">
+        <hr>
+        <br class="space">
+      <!-- information -->
+      <p  style="width: 66%; margin-right: 19%;"> Звідки дізнались про нас:
+           <input type="radio" name="information" value=""> від друзів  
+           <input type="radio" name="information" value=""> через роботу
+           <input type="radio" name="information" value=""> з реклами
+          </p>
+            <br class="space">
+        <hr>
+        <br class="space">
+      <!-- text area1 -->
+      <p>
+           <label for="thinks">Ваші очікування від робот в нашій компанії</label>
+           <br>
+           <textarea name="thinks" id="textarea" rows="3" cols="135" class="border"></textarea>
+          </p>
+            <br class="space">
+        <hr>
+        <br class="space">
+      <!-- text area2 -->
+      <p>
+           <label for="thinks">Ваша коротка автобіографія</label>
+           <br>
+           <textarea name="thinks" id="textarea" rows="8" cols="135" class="border"></textarea>
+          </p>
+          <!-- file --> 
+           <p >
+              Загрузіть Ваше фото
+            <input type="file" name="photo" multiple accept="image/*,image/jpeg">
+           </p>
+        <br class="space">
+        <hr>
+        <br class="space"> 
+      <!-- Checkbox -->
+        <p >
+          <input type="checkbox" name="information" id="checkbox"> Зі всіма правилами і принципами роботи в компанії ознайомлена і сумлінно буду їх виконувати 
+        </p>
+        <p>
+          * - поля обов'язкові до заповнення
+        </p>
+            <!-- button -->
+      <p > 
+        <input type="button"  id = "button" value= "Відправити" onclick="prov_adress(forma12)" class="border_blue"/>
+       </p>
+
+  </form>
+       </div>
+       </p>
+    <footer class="border_blue">
+      <h1></h1>
+    </footer>
+</body>
+</html>
+

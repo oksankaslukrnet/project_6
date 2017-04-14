@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+   <head>
+ 
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  <title>Google Maps Multiple Markers</title> 
+  <!-- <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script> -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfRliBP3kFAgggf-Qb2G6NjuiEJpWkyo4&callback=myMap"></script>
+  <link href="style.css" rel="stylesheet" />
+
+   </head>
+	 <body>	
+		<header class="border_blue">
+
+		     <img src="logo.png" alt="logo"/>
+			<h1>Корпоративний сайт компанії FlowerForYou</h1>	 
+		</header>	  
+		
+		<nav class="border_grey"> 	
+			<ul class="nav-wrapper ">
+        <li><a class="page border_blue">Головна</a></li>
+        <li><a>Правила компанії</a></li>
+        <li><a>Улюблене</a></li>
+        <li><a href="form.html">Форма для нових працівників</a></li>
+            </ul>    
+		</nav>
+
+		<div class="content clearfix">
+			<div class="sidebar">
+					  
+                 <form class="form-wrapper border_grey" >
+                     <input type="text" id="search" placeholder="Search for..." required>
+                      <input type="submit" value="go" id="submit">
+                 </form>
+                 <br>
+				
+				<aside class="border_blue">
+					<span>
+					  <h2>Найкращий працівник місяця</h2>
+					Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки. Сенс використання Lorem Ipsum полягає в тому, що цей текст має більш-менш нормальне розподілення літер на відміну від, наприклад, "Тут іде текст. Тут іде текст." Це робить текст схожим на оповідний. Багато програм верстування та веб-дизайну використовують Lorem Ipsum як зразок і пошук за терміном "lorem ipsum" відкриє багато веб-сайтів, які знаходяться ще в зародковому стані. Різні версії Lorem Ipsum з'явились за минулі роки, деякі випадково, деякі було створено зумисно більше...	    
+					</span>
+				</aside>
+				<aside class="border_blue">
+					<span>
+					  <h2>Оновлена стратегія розвитку компанії</h2>
+					  На відміну від поширеної думки Lorem Ipsum не є випадковим набором літер. Він походить з уривку класичної латинської літератури 45 року до н.е., тобто має більш як 2000-річну історію. Річард Макклінток, професор латини з коледжу Хемпдін-Сидні, що у Вірджінії, вивчав одне з найменш зрозумілих латинських слів - consectetur - з уривку Lorem Ipsum, і у пошуку цього слова в класичній літературі знайшов безсумнівне джерело. Lorem Ipsum походить з розділів 1.10.32 та 1.10.33 цицеронівського "de Finibus Bonorum et Malorum" ("Про межі добра і зла"), написаного у 45 році більше... 
+					</span>
+				</aside>
+			</div>
+			
+			<section class="main border_grey">	
+				<h3>Відкрилось нове представництво нашої компанії в Івано-Франківську</h3>
+				<article>
+                    Lorem Ipsum - це текст-"риба", що використовується в друкарстві та дизайні. Lorem Ipsum є, фактично, стандартною "рибою" аж з XVI сторіччя, коли невідомий друкар взяв шрифтову гранку та склав на ній підбірку зразків шрифтів. "Риба" не тільки успішно пережила п'ять століть, але й прижилася в електронному верстуванні, залишаючись по суті незмінною. Вона популяризувалась в 60-их роках минулого сторіччя завдяки виданню зразків шрифтів Letraset, які містили уривки з Lorem Ipsum, і вдруге - нещодавно завдяки програмам комп'ютерного верстування на кшталт Aldus Pagemaker, які використовували різні версії Lorem Ipsum.
+           
+						<div id="map" style="width: 100%; height: 400px;"></div>
+
+						  <script type="text/javascript">
+						    var locations = [
+						      ['Головний офіс', 48.924464, 24.710177, 4],
+						      ['Офіс 1', 48.929990, 24.737814, 5],
+						      ['Офіс 2', 48.931682, 24.702967, 3],
+						      ['Офіс 3',48.941492, 24.741591, 2],
+						      ['Офіс 4(новий офіс)', 48.919049, 24.712065, 1]
+						    ];
+
+						    var map = new google.maps.Map(document.getElementById('map'), {
+						      zoom: 13,
+						      center: new google.maps.LatLng(48.931492, 24.721591),
+						      mapTypeId: google.maps.MapTypeId.ROADMAP
+                              
+						    });
+
+						    var infowindow = new google.maps.InfoWindow();
+
+						    var marker, i;
+
+
+
+						    for (i = 0; i < locations.length; i++) {  
+						      marker = new google.maps.Marker({
+						        position: new google.maps.LatLng(locations[i][1], locations[i][2]), 
+						     
+						        map: map
+						      });
+
+						          
+						          // animation: google.maps.Animation.BOUNCE; 
+						      
+
+						      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+						        return function() {
+						          
+						          infowindow.setContent(locations[i][0]);
+						          infowindow.open(map, marker);
+						        }
+						      })(marker, i));
+						    }
+						  </script>
+
+				</article>
+			    <article class="border_blue">
+					<h2>Не офіційний гімн компанії</h2>
+					    <audio controls>
+							  <source src="music.mp3" type="audio/mpeg">
+						</audio>
+				</article>
+				<article>
+					<h3>Відпочинок групи співробітників в карпатах</h3>
+					<embed width="100%" height="515"
+src="https://www.youtube.com/v/RZTso9MBOm8">
+				</article>	
+
+			</section>
+		</div>		
+		<footer class="border_blue">
+			<h1></h1>
+		</footer>		  
+	</body>
+</html>	
